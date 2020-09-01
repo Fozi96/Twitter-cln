@@ -29,7 +29,6 @@ class TweetsController < ApplicationController
   def edit
   end
 
-
   def create
     @tweet = Tweet.new(tweet_params)
 
@@ -66,10 +65,10 @@ class TweetsController < ApplicationController
 
   private
   def set_tweet
-  @tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
   end
 
-    def tweet_params
+  def tweet_params
       params.require(:tweet).permit(:tweet)
-    end
+  end
 end
