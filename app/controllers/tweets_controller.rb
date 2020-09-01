@@ -1,15 +1,12 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @tweets = Tweet.all.order("created_at DESC")
   end
 
   def show
   end
-
-
 
   def new
     if params[:back]
@@ -23,7 +20,6 @@ class TweetsController < ApplicationController
         @tweet = Tweet.new(tweet_params)
         render :new if @tweet.invalid?
   end
-
 
   def back
         @tweet = Tweet.edit(tweet_params)
@@ -48,10 +44,6 @@ class TweetsController < ApplicationController
     end
   end
 
-
-
-
-
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
@@ -64,8 +56,6 @@ class TweetsController < ApplicationController
     end
   end
 
-
-
   def destroy
     @tweet.destroy
     respond_to do |format|
@@ -75,9 +65,9 @@ class TweetsController < ApplicationController
   end
 
   private
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
+  def set_tweet
+  @tweet = Tweet.find(params[:id])
+  end
 
     def tweet_params
       params.require(:tweet).permit(:tweet)
