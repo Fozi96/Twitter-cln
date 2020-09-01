@@ -3,13 +3,48 @@
   <head>
     <title>Tweetfo</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <% if flash[:notice] %>
+    		<div class="notification is-primary global-notification">
+    			<p class="notice"><%= notice %></p>
+    		</div>
+    	<% end %>
+    	<% if flash[:alert] %>
+    		<div class="notification is-danger global-notification">
+    			<p class="alert"><%= alert %></p>
+    		</div>
+    	<% end %>
+
+
+
+
+
+
+
+
+
     <%= yield %>
   </body>
+
+
+
+  <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Twitter Clone</strong> by <a href="https://github.com/Fozi96/Twittery.git">Fozia Fayib</a>. Hola, let's die together.
+       <a href="https://diver.diveintocode.jp">let's dive together </a>.
+    </p>
+  </div>
+</footer>
+
+
+
 </html>
